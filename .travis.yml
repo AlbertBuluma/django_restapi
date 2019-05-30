@@ -1,7 +1,7 @@
 language: python
 
 services: # => 3
-      - mysql
+      - postgresql
 
 env: # => 4
     -DJANGO=2.2.1 DB=postregsql
