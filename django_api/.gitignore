@@ -8,7 +8,7 @@ __pycache__
 *.exe
 *.o
 *.so
-
+*.pyc
 *.so
 
 # Packages #
