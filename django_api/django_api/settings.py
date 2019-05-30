@@ -25,7 +25,7 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['albertdjango-restapi.herokuapp.com']
 
 
 # Application definition
