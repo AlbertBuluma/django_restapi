@@ -7,4 +7,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . models import employees
-from . serializers import employeeserializer
+from . serializers import employeeSerializer
+
+
+class EmployeeList(APIView):
+
+    def get(self, request):
+        employeesl = employees.objects.all()
+        serializer = employeeSerializer(employeesl, many=True)
+        return Response(serializer.data)
+
+
+    def post(self):
+        pass
