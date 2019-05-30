@@ -4,7 +4,7 @@ services: # => 3
       - mysql
 
 env: # => 4
-    -DJANGO=2.2.1 DB=mysql
+    -DJANGO=2.2.1 DB=postregsql
     
 install: # => 5
       - pip install -r requirements.txt
