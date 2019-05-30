@@ -14,3 +14,8 @@ install: # => 5
 script: # => 7
       #- cd django_api
       - python manage.py test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "385b3e25-f8d4-4f8a-b232-f73776b4884d"
