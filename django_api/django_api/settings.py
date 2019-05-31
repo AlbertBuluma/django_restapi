@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'albertdjango-restapi.wsgi.application'
+WSGI_APPLICATION = 'django_api.wsgi.application'
 
 
 # Database
