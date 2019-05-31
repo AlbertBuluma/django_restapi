@@ -1,1 +1,2 @@
-web: gunicorn django_api.django_api.wsgi --log-file -
+release: python manage.py migrate
+web: gunicorn django_api.wsgi --log-file -

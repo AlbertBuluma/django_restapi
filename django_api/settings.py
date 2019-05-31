@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,12 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['albertdjango-restapi.herokuapp.com']
+ALLOWED_HOSTS = [
+	'127.0.0.1',
+	'::1',
+	'albertdjango-restapi.herokuapp.com',
+	'glacial-oasis-87708.herokuapp.com'
+]
 
 
 # Application definition
@@ -75,18 +81,8 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', #Switching to Postgres DB
-        'NAME': 'albertdb',
-        'USER': 'albert',
-        'PASSWORD': 'albert',
-        'HOST':'localhost',
-        'PORT':'5432',
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
 }
 
 
@@ -129,8 +125,8 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT  = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
@@ -139,8 +135,5 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
