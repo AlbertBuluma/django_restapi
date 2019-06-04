@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class employees(models.Model):
+class Employees(models.Model):
     firstname = models.CharField(max_length=15)
     lastname = models.CharField(max_length=15)
     # emp_id = models.IntegerField()
