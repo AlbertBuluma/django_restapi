@@ -9,11 +9,24 @@ env: # => 4
 install: # => 5
       - pip install -r requirements.txt
     
-before_script: # => 6
-      - psql -e 'create database test;' -u root
+# before_script: # => 6
+#       - psql -e 'create database test;' -u root
+
+
 script: # => 7
       #- cd django_api
+      - source ~/.env/bin/activate
+      - python manage.py syncdb --noinput
       - python manage.py test
+services: postgresql
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=your_project.settings
+  - export PYTHONPATH=$HOME/builds/your_github_username/your_repo
+  - export PIP_USE_MIRRORS=true
+
+before_script:
+  - psql -c "CREATE DATABASE mydb;" -U postgres
 
 deploy:
   provider: heroku
