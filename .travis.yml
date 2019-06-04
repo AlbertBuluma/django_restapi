@@ -13,7 +13,7 @@ install: # => 5
 #       - mysql -e 'create database test;' -u root
 script: # => 7
       #- cd django_api
-      - python manage.py test
+      - manage.py test
 
 deploy:
   provider: heroku
