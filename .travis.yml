@@ -21,8 +21,8 @@ script: # => 7
 services: postgresql
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=your_project.settings
-  - export PYTHONPATH=$HOME/builds/your_github_username/your_repo
+  - export DJANGO_SETTINGS_MODULE=django_restapi.settings
+  - export PYTHONPATH=$HOME/builds/AlbertBuluma/django_restapi
   - export PIP_USE_MIRRORS=true
 
 before_script:
