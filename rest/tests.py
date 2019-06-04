@@ -27,7 +27,8 @@ class EmployeeTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         # self.assertEqual(len(response.data), 1)
 
-    def test_Employee_id(self):
-        url = reverse('api-root/')
-        response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, 200)
+    # def test_Employee_id(self):
+    #     count = Employees.objects.count()
+    #     url = reverse('api-root/')
+    #     response = self.client.get(url, format='json')
+    #     self.assertEqual(response.status_code, 200)
