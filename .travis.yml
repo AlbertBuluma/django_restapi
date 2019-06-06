@@ -6,16 +6,30 @@ services: # => 3
 env: # => 4
     -DJANGO=2.2.1 DB=postregsql
     
+before_install:
+  - export DJANGO_SETTINGS_MODULE=django_restapi.settings
+  - export PYTHONPATH=$HOME/builds/AlbertBuluma/django_restapi
+  - export PIP_USE_MIRRORS=true
+
 install: # => 5
       - pip install -r requirements.txt
     
 # before_script: # => 6
-#       - mysql -e 'create database test;' -u root
-#script: # => 7
+#       - psql -e 'create database test;' -u root
+
+before_script:
+  - psql -c "CREATE DATABASE mydb;" -U postgres
+
+script: # => 7
       #- cd django_api
-      # - python manage.py test
+      - source ~/.env/bin/activate
+      - python manage.py syncdb --noinput
+      - python manage.py test
 
 deploy:
   provider: heroku
   api_key:
     secure: "385b3e25-f8d4-4f8a-b232-f73776b4884d"
+
+
+
