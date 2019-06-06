@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import dj_database_url 
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', '::1', 'albertdjango-restapi.herokuapp.com', 'glacial-oasis-87708.herokuapp.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'albertdjango-restapi.herokuapp.com']
 
 
 # Application definition
@@ -77,20 +78,21 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-# DATABASES = {
-# 	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
-# }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'albertdb',
-        'USER': 'postgres',
-        'PASSWORD': 'albert256',
-        'HOST':'localhost',
-        'PORT':'5432',
-    }
+	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'albertdb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'albert256',
+#         'HOST':'localhost',
+#         'PORT':'5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
