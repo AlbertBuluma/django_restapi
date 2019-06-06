@@ -26,17 +26,7 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 # ALLOWED_HOSTS = ['127.0.0.1', '::1', 'albertdjango-restapi.herokuapp.com', 'glacial-oasis-87708.herokuapp.com']
-=======
-# ALLOWED_HOSTS = [
-# 	'127.0.0.1',
-# 	'::1',
-# 	'albertdjango-restapi.herokuapp.com',
-# 	'glacial-oasis-87708.herokuapp.com'
-# ]
-
->>>>>>> 41110789fc808b2769142c8e019eb21497c8fd9a
 ALLOWED_HOSTS = []
 
 
@@ -86,32 +76,19 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 
 
 # Database
-<<<<<<< HEAD
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-=======
-# # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
->>>>>>> 41110789fc808b2769142c8e019eb21497c8fd9a
 # DATABASES = {
 # 	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
 # }
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'albertdb',
         'USER': 'postgres',
         'PASSWORD': 'albert256',
         'HOST':'localhost',
         'PORT':'5432',
-=======
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'albertdb',
-        'USER': 'albert',
-        'PASSWORD': 'albert',
-        'HOST': 'localhost',
-        'PORT': '5432',
->>>>>>> 41110789fc808b2769142c8e019eb21497c8fd9a
     }
 }
 
