@@ -1,21 +1,29 @@
-language: python
+language: 
+  - python
+python:
+  - "3.6.7"
 
-services: # => 3
-      - postgresql
+services:
+  - postgresql
+  
+env: 
+  -DJANGO=2.2.1 
 
-env: # => 4
-    -DJANGO=2.2.1 DB=postregsql
-    
-install: # => 5
-      - pip install -r requirements.txt
-    
-# before_script: # => 6
-#       - mysql -e 'create database test;' -u root
-#script: # => 7
-      #- cd django_api
-      # - python manage.py test
+install:
+
+  - pip install -r requirements.txt
+
+before_script:
+  - psql -c "CREATE DATABASE albertdb;" -U postgres    
+
+script:
+  - python manage.py migrate
+  - python manage.py test rest
 
 deploy:
   provider: heroku
   api_key:
     secure: "385b3e25-f8d4-4f8a-b232-f73776b4884d"
+
+
+
