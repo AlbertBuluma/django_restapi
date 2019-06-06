@@ -27,10 +27,10 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 DEBUG = True
 
 #Deploy via localhost development server
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 #Deploy via Heroku
-# ALLOWED_HOSTS = ['127.0.0.1', 'albertdjango-restapi.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'albertdjango-restapi.herokuapp.com']
 
 
 # Application definition
@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 #Heroku deployment settings
-# DATABASES = {
-# 	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
-# }
+DATABASES = {
+	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
+}
 
 # Postgresql local deployment settings
 
