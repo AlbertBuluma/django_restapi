@@ -1,30 +1,24 @@
-language: python
+language: 
+  - python
+python:
+  - "3.6.7"
 
-services: # => 3
-      - postgresql
+services:
+  - postgresql
+  
+env: 
+  -DJANGO=2.2.1 
 
-env: # => 4
-    -DJANGO=2.2.1 DB=postregsql
-    
-before_install:
-  - export DJANGO_SETTINGS_MODULE=django_restapi.settings
-  - export PYTHONPATH=$HOME/builds/AlbertBuluma/django_restapi
-  - export PIP_USE_MIRRORS=true
+install:
 
-install: # => 5
-      - pip install -r requirements.txt
-    
-# before_script: # => 6
-#       - psql -e 'create database test;' -u root
+  - pip install -r requirements.txt
 
 before_script:
-  - psql -c "CREATE DATABASE mydb;" -U postgres
+  - psql -c "CREATE DATABASE albertdb;" -U postgres    
 
-script: # => 7
-      #- cd django_api
-      - source ~/.env/bin/activate
-      - python manage.py syncdb --noinput
-      - python manage.py test
+script:
+  - python manage.py migrate
+  - python manage.py test apiapp
 
 deploy:
   provider: heroku
