@@ -26,12 +26,8 @@ SECRET_KEY = 'lhb7t^^i+ji)(e=df^!$)5r2w4@q7y3u19waf-jm*cct9xkjvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-	'127.0.0.1',
-	'::1',
-	'albertdjango-restapi.herokuapp.com',
-	'glacial-oasis-87708.herokuapp.com'
-]
+# ALLOWED_HOSTS = ['127.0.0.1', '::1', 'albertdjango-restapi.herokuapp.com', 'glacial-oasis-87708.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -81,10 +77,20 @@ WSGI_APPLICATION = 'django_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-DATABASES = {
-	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
-}
+# DATABASES = {
+# 	'default': dj_database_url.config(default='postgres://localhost/albertdb', conn_max_age=600)
+# }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'albertdb',
+        'USER': 'postgres',
+        'PASSWORD': 'albert256',
+        'HOST':'localhost',
+        'PORT':'5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
