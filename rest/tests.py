@@ -15,8 +15,8 @@ urlpatterns = [
 
 class EmployeeTestCase(TestCase):
     
-    client = APIClient()
-    client.post('/<int:id>', {firstname:'Jerry'}, format='json')
+    # client = APIClient()
+    # client.post('/<int:id>', {firstname:'Jerry'}, format='json')
     # Testing Employee creation
     def test_Employee_names(self): 
         employee = Employees.objects.create(firstname='Albert', lastname='Buluma')
