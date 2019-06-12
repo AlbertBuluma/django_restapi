@@ -7,4 +7,4 @@ from .serializers import employeeSerializer
 class EmployeeView(viewsets.ModelViewSet):
     queryset = Employees.objects.all()
     serializer_class = employeeSerializer 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
